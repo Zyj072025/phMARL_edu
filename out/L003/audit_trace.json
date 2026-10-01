@@ -1,0 +1,1885 @@
+{
+  "profile_id": "L003",
+  "说明": "声明级审核明细：每条声明的三态判定、取证出处、投影算子与最终文本。这是\"高保真知识溯源\"的原始记录。",
+  "resources": [
+    {
+      "round": 1,
+      "knowledge_point": "马尔可夫决策过程",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-01",
+          "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+          "score": 43.48
+        },
+        {
+          "doc_id": "KB-M1-02",
+          "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+          "score": 33.17
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 5,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 5,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 5,
+        "投影处置数": 0,
+        "SUPPORTED": 5,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「马尔可夫决策过程」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 238.84
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 66.75
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 42.09
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「马尔可夫决策过程」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 118.97
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 31.77
+            },
+            {
+              "doc_id": "KB-M4-04",
+              "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+              "score": 15.55
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "text": "多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「马尔可夫决策过程」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 138.38
+            },
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 57.25
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 42.23
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "text": "无后效性：MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「马尔可夫决策过程」表述一致（重叠 0.98）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 139.68
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 36.37
+            },
+            {
+              "doc_id": "KB-M3-05",
+              "citation": "辩论机制与交叉验证 §2（Irving, Christiano & Amodei. AI safety via debate. arXiv:1805.00899, 2018.，KB-M3-05）",
+              "score": 18.82
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "无后效性：MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "text": "随机博弈：多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「马尔可夫决策过程」表述一致（重叠 0.98）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 162.97
+            },
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 57.25
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 42.23
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "随机博弈：多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "原始声明": "多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "原始声明": "无后效性：MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "无后效性：MDP 的关键性质是无后效性：给定当前状态，未来与历史无关。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "原始声明": "随机博弈：多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "随机博弈：多智能体问题常建模为随机博弈（Markov Game），其联合动作空间随智能体数量指数增长。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 5,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "马尔可夫决策过程",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-01",
+          "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+          "score": 43.48
+        },
+        {
+          "doc_id": "KB-M1-02",
+          "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+          "score": 33.17
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "马尔可夫决策过程",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-01",
+          "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+          "score": 43.48
+        },
+        {
+          "doc_id": "KB-M1-02",
+          "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+          "score": 33.17
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 2,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：马尔可夫决策过程（基础）",
+          "text": "参考答案：强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「马尔可夫决策过程」表述一致（重叠 0.92）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 238.84
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 66.75
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 42.09
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：马尔可夫决策过程（基础）",
+          "原始声明": "参考答案：强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：强化学习把序贯决策建模为马尔可夫决策过程（MDP），由状态集合、动作集合、转移概率、奖励函数与折扣因子五元组构成",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "部分可观测与 POMDP",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-02",
+          "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+          "score": 37.97
+        },
+        {
+          "doc_id": "KB-M2-04",
+          "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+          "score": 27.46
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 6,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 6,
+        "投影处置数": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「部分可观测与 POMDP」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 282.64
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 115.13
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 77.02
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「部分可观测与 POMDP」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 201.28
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 38.34
+            },
+            {
+              "doc_id": "KB-M3-01",
+              "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+              "score": 33.77
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "二、要点速记",
+          "text": "POMDP：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「部分可观测与 POMDP」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 288.0
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 115.13
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 77.02
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "POMDP：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "text": "局部观测：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「部分可观测与 POMDP」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 305.53
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 115.13
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 95.55
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "局部观测：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "text": "信念状态：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「部分可观测与 POMDP」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 309.37
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 123.98
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 77.97
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "信念状态：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "text": "状态表征：部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「部分可观测与 POMDP」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 230.15
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 40.95
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 38.34
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "状态表征：部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "二、要点速记",
+          "原始声明": "POMDP：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "POMDP：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "原始声明": "局部观测：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "局部观测：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "原始声明": "信念状态：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "信念状态：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "原始声明": "状态表征：部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "状态表征：部分可观测是引起智能体之间决策不确定性的主要来源之一，通常通过状态表征学习或通信来缓解。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 6,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "部分可观测与 POMDP",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-02",
+          "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+          "score": 37.97
+        },
+        {
+          "doc_id": "KB-M2-04",
+          "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+          "score": 27.46
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "部分可观测与 POMDP",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-02",
+          "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+          "score": 37.97
+        },
+        {
+          "doc_id": "KB-M2-04",
+          "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+          "score": 27.46
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 2,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：部分可观测与 POMDP（基础）",
+          "text": "参考答案：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「部分可观测与 POMDP」表述一致（重叠 0.92）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 282.64
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 115.13
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 77.02
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：部分可观测与 POMDP（基础）",
+          "原始声明": "参考答案：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：当智能体无法直接观测完整状态时，问题建模为部分可观测马尔可夫决策过程（POMDP），智能体只能依据局部观测与历史构建信念状态",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "非平稳性",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-03",
+          "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+          "score": 26.56
+        },
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 20.41
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 6,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 5,
+        "CONTRADICTED": 1,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.1667,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.1667
+      },
+      "post_audit": {
+        "交付声明数": 6,
+        "投影处置数": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「非平稳性」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 300.35
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 76.06
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 75.47
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「非平稳性」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 174.33
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 85.27
+            },
+            {
+              "doc_id": "KB-M5-01",
+              "citation": "训练不稳定的常见原因 §1（PyTorch 官方文档；强化学习工程实践共识（本团队整理），2026.，KB-M5-01）",
+              "score": 40.98
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "text": "CTDE（集中训练分散执行）可以彻底消除多智能体环境中的非平稳性，因为训练时 Critic 能看到所有智能体的信息。",
+          "verdict": "SUPPORTED",
+          "reason": "与知识库条目「集中训练分散执行（CTDE）」记录的领域误区表述一致（条目级对账 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 120.38
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 96.33
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 50.55
+            }
+          ],
+          "operator": "REPLACE",
+          "final_text": "CTDE 并不能消除非平稳性，它只是让集中式 Critic 在训练阶段能感知其他智能体的策略，从而缓解而非消除环境分布随其他智能体更新而变化的问题。",
+          "edit_distance": 0.8784
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "text": "非平稳性：在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「非平稳性」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 330.16
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 95.87
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 76.33
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "非平稳性：在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "text": "独立学习：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「非平稳性」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 193.98
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 85.27
+            },
+            {
+              "doc_id": "KB-M5-01",
+              "citation": "训练不稳定的常见原因 §1（PyTorch 官方文档；强化学习工程实践共识（本团队整理），2026.，KB-M5-01）",
+              "score": 44.42
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "独立学习：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "text": "CTDE：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「非平稳性」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 178.18
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 90.04
+            },
+            {
+              "doc_id": "KB-M5-01",
+              "citation": "训练不稳定的常见原因 §1（PyTorch 官方文档；强化学习工程实践共识（本团队整理），2026.，KB-M5-01）",
+              "score": 40.98
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "CTDE：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "原始声明": "CTDE（集中训练分散执行）可以彻底消除多智能体环境中的非平稳性，因为训练时 Critic 能看到所有智能体的信息。",
+          "原判定": "CONTRADICTED",
+          "尝试": [
+            {
+              "算子": "REPLACE",
+              "可行性": true,
+              "复审判定": "SUPPORTED",
+              "归一化编辑距离": 0.8784,
+              "候选文本": "CTDE 并不能消除非平稳性，它只是让集中式 Critic 在训练阶段能感知其他智能体的策略，从而缓解而非消除环境分布随其他智能体更新而变化的问题。"
+            },
+            {
+              "算子": "DELETE",
+              "可行性": true,
+              "复审判定": "DELETED",
+              "归一化编辑距离": 1.0,
+              "候选文本": null
+            }
+          ],
+          "核定过程的拒绝": [],
+          "选定算子": "REPLACE",
+          "最终文本": "CTDE 并不能消除非平稳性，它只是让集中式 Critic 在训练阶段能感知其他智能体的策略，从而缓解而非消除环境分布随其他智能体更新而变化的问题。",
+          "补充检索后判定": "CONTRADICTED"
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "原始声明": "非平稳性：在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "非平稳性：在多智能体环境中，每个智能体面对的\"环境\"包含其他仍在学习的智能体，因此环境的转移与奖励分布会随其他智能体策略的更新而变化，这一现象称为非平稳性。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "原始声明": "独立学习：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "独立学习：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "原始声明": "CTDE：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "CTDE：非平稳性是独立学习（Independent Learning）不稳定的根本原因，集中训练分散执行（CTDE）是缓解该问题的常用范式。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 6,
+        "冲突声明数": 1,
+        "投影介入率": 0.1667,
+        "替换数": 1,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.8784,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "非平稳性",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-03",
+          "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+          "score": 26.56
+        },
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 20.41
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "非平稳性",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-03",
+          "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+          "score": 26.56
+        },
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 20.41
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 2,
+        "非断言性文本_不计入": 1,
+        "SUPPORTED": 2,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 2,
+        "投影处置数": 0,
+        "SUPPORTED": 2,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：非平稳性（基础）",
+          "text": "参考答案：其他智能体的策略在持续更新，导致环境的转移与奖励分布随训练变化",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「非平稳性」表述一致（重叠 0.64）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 77.56
+            },
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 34.95
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 32.48
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：其他智能体的策略在持续更新，导致环境的转移与奖励分布随训练变化",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "分阶测试题：非平稳性（基础）",
+          "text": "解析：独立学习不稳定的根本原因即非平稳性，CTDE 是缓解范式。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「非平稳性」表述一致（重叠 0.85）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 105.83
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 46.38
+            },
+            {
+              "doc_id": "KB-M5-01",
+              "citation": "训练不稳定的常见原因 §1（PyTorch 官方文档；强化学习工程实践共识（本团队整理），2026.，KB-M5-01）",
+              "score": 29.88
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "解析：独立学习不稳定的根本原因即非平稳性，CTDE 是缓解范式。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：非平稳性（基础）",
+          "原始声明": "参考答案：其他智能体的策略在持续更新，导致环境的转移与奖励分布随训练变化",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：其他智能体的策略在持续更新，导致环境的转移与奖励分布随训练变化",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "分阶测试题：非平稳性（基础）",
+          "原始声明": "解析：独立学习不稳定的根本原因即非平稳性，CTDE 是缓解范式。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "解析：独立学习不稳定的根本原因即非平稳性，CTDE 是缓解范式。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 2,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "集中训练分散执行（CTDE）",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 42.09
+        },
+        {
+          "doc_id": "KB-M1-03",
+          "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+          "score": 30.58
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 6,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 6,
+        "投影处置数": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「集中训练分散执行（CTDE）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 210.95
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 100.96
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 57.43
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「集中训练分散执行（CTDE）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 144.47
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 54.01
+            },
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 35.54
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "text": "注意：CTDE 并不能消除非平稳性，它只是让 Critic 在训练时能感知其他智能体的策略。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「集中训练分散执行（CTDE）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 140.16
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 57.31
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 29.95
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "注意：CTDE 并不能消除非平稳性，它只是让 Critic 在训练时能感知其他智能体的策略。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "text": "CTDE：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「集中训练分散执行（CTDE）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 215.72
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 100.96
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 57.43
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "CTDE：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "text": "集中式 Critic：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「集中训练分散执行（CTDE）」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 229.99
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 120.75
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 57.43
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "集中式 Critic：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "text": "可扩展性：该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「集中训练分散执行（CTDE）」表述一致（重叠 0.98）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 168.1
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 54.52
+            },
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 36.85
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "可扩展性：该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "原始声明": "注意：CTDE 并不能消除非平稳性，它只是让 Critic 在训练时能感知其他智能体的策略。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "注意：CTDE 并不能消除非平稳性，它只是让 Critic 在训练时能感知其他智能体的策略。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "原始声明": "CTDE：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "CTDE：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "原始声明": "集中式 Critic：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "集中式 Critic：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "原始声明": "可扩展性：该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "可扩展性：该范式在缓解非平稳性的同时保持执行时的可扩展性，是 MADDPG、QMIX 等方法的基础。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 6,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "集中训练分散执行（CTDE）",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 42.09
+        },
+        {
+          "doc_id": "KB-M1-03",
+          "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+          "score": 30.58
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "集中训练分散执行（CTDE）",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 42.09
+        },
+        {
+          "doc_id": "KB-M1-03",
+          "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+          "score": 30.58
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 2,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：集中训练分散执行（CTDE）（基础）",
+          "text": "参考答案：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「集中训练分散执行（CTDE）」表述一致（重叠 0.91）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 210.95
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 100.96
+            },
+            {
+              "doc_id": "KB-M1-02",
+              "citation": "部分可观测与 POMDP §2.3（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-02）",
+              "score": 57.43
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：集中训练分散执行（CTDE）（基础）",
+          "原始声明": "参考答案：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：CTDE 允许训练阶段使用所有智能体的观测与动作（集中式 Critic），而执行阶段每个智能体只依赖自身局部观测（分散式 Actor）",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    }
+  ]
+}

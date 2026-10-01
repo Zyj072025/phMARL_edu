@@ -1,0 +1,3507 @@
+{
+  "profile_id": "L002",
+  "profile": {
+    "profile_id": "L002",
+    "来源说明": "画像数据源一：课程注册与先修信息（教务侧）＋ 数据源二：历史实验日志中的训练与调试记录（客观行为）。",
+    "数据源": [
+      {
+        "name": "enrollment_record",
+        "中文名": "课程注册与先修信息",
+        "采集项": [
+          "学历",
+          "研究方向",
+          "已完成课程",
+          "论文阅读记录"
+        ],
+        "原始记录": {
+          "学历": "硕士研究生一年级",
+          "研究方向": "多智能体强化学习",
+          "已完成课程": "强化学习、深度学习、凸优化、随机过程",
+          "论文阅读记录": "精读过 MADDPG、QMIX 原始论文，读过通信与安全滤波方向综述"
+        }
+      },
+      {
+        "name": "experiment_log",
+        "中文名": "历史实验日志（客观行为）",
+        "采集项": [
+          "复现经历",
+          "实验规模",
+          "遇到的问题类型"
+        ],
+        "原始记录": {
+          "复现经历": "复现过 MADDPG 在 MPE 上的实验，独立完成一次 3 seed 对照",
+          "实验规模": "单卡，累计训练约 200 万帧",
+          "遇到的问题类型": "超参标定、结果方差大、通信模块调不通"
+        }
+      }
+    ],
+    "education": "硕士研究生一年级 多智能体强化学习方向",
+    "theory_score": "88/100",
+    "hands_on": "做过多智能体项目",
+    "history_accuracy": 0.84,
+    "弱项自述": "通信模块的实现细节和安全约束的可行性处理不够扎实，实验方差控制缺经验",
+    "备注": "本画像用于验证『高基础』分支：预期盲区很少，难度档应直接落在挑战，并触发『进阶挑战』教学动作。"
+  },
+  "backend": "mock",
+  "feedback_source": "LearnerSim(模拟)",
+  "enable_diagnosis": true,
+  "correction": "projection",
+  "gate_threshold": 0.3,
+  "rounds": [
+    {
+      "round": 1,
+      "plan": {
+        "round": 1,
+        "targets": [
+          {
+            "knowledge_point": "因果效应用作通信必要性判据",
+            "mastery": 0.6248,
+            "difficulty_base": "进阶",
+            "预测正确率": 0.6873,
+            "知识点台阶": "挑战",
+            "目标类型": "能力拓展（无盲区，推送尚未精通的最难知识点）",
+            "difficulty": "进阶",
+            "difficulty_依据": "由掌握度估计 0.625 选定「进阶」档，预测正确率 0.69（心流区间目标中心 0.70）",
+            "difficulty_gated_default": true
+          },
+          {
+            "knowledge_point": "门控通信与通信稀疏度",
+            "mastery": 0.6248,
+            "difficulty_base": "进阶",
+            "预测正确率": 0.6873,
+            "知识点台阶": "挑战",
+            "目标类型": "能力拓展（无盲区，推送尚未精通的最难知识点）",
+            "difficulty": "进阶",
+            "difficulty_依据": "由掌握度估计 0.625 选定「进阶」档，预测正确率 0.69（心流区间目标中心 0.70）",
+            "difficulty_gated_default": true
+          }
+        ],
+        "difficulty_adjustments": [],
+        "超出可及范围_暂缓": [],
+        "暂缓数": 0,
+        "gate_message": {
+          "mtype": "diagnosis",
+          "sender": "A1 学情诊断",
+          "receiver": "A2 领域知识生成",
+          "impact": 0.0,
+          "sent": false,
+          "reason": "影响分 0.000 ≤ τ=0.30",
+          "chars": 515,
+          "payload_brief": "{\"targets\": [{\"knowledge_point\": \"因果效应用作通信必要性判据\", \"mastery\": 0.6248, \"difficulty_base\": \"进阶\", \"预测正确率\": 0.6873, \"知识点台阶\": …"
+        },
+        "action": "首轮诊断"
+      },
+      "items": [
+        {
+          "knowledge_point": "因果效应用作通信必要性判据",
+          "difficulty": "进阶",
+          "resources": [
+            {
+              "kind": "lecture",
+              "label": "定制讲义",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-02",
+                  "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                  "score": 67.95
+                },
+                {
+                  "doc_id": "KB-M4-04",
+                  "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                  "score": 12.99
+                }
+              ],
+              "text_raw": "# 定制讲义：因果效应用作通信必要性判据\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。该量可作为通信必要性的量化判据。\n当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。\n\n## 二、要点速记\n- **因果影响**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **社会影响力**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **内在奖励**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。\n- **通信必要性**：该量可作为通信必要性的量化判据。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 因果效应用作通信必要性判据 §4",
+              "text_delivered": "# 定制讲义：因果效应用作通信必要性判据\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。该量可作为通信必要性的量化判据。\n约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。\n\n## 二、要点速记\n- **因果影响**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **社会影响力**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **内在奖励**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。\n- **通信必要性**：该量可作为通信必要性的量化判据。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 因果效应用作通信必要性判据 §4\n\n## 附：审核说明\n本资源的每一条结论都经过声明级取证审核，处理结果如下：\n\n- **修正 1 条**（与知识库冲突，已做最小改写，平均归一化编辑距离 0.8871）：\n  - `C004` 当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。 → 约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。\n\n> 完整记录（含每条声明的检索证据、判定理由、候选改写与可行性复审结果）见 `audit_trace.json`。\n",
+              "pre_audit": {
+                "声明总数": 8,
+                "非断言性文本_不计入": 0,
+                "SUPPORTED": 7,
+                "CONTRADICTED": 1,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.125,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.125
+              },
+              "post_audit": {
+                "交付声明数": 8,
+                "投影处置数": 0,
+                "SUPPORTED": 8,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 165.63
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 33.32
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 72.88
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 14.49
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 13.68
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C004",
+                  "section": "一、核心概念",
+                  "text": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "verdict": "CONTRADICTED",
+                  "reason": "与知识库条目「约束不可行时的降级策略」记录的领域误区表述一致（条目级对账 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M4-02",
+                      "citation": "安全滤波器与二次规划投影 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-02）",
+                      "score": 78.16
+                    },
+                    {
+                      "doc_id": "KB-M4-04",
+                      "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                      "score": 69.53
+                    },
+                    {
+                      "doc_id": "KB-M4-05",
+                      "citation": "安全约束的常见统计口径 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-05）",
+                      "score": 60.87
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 198.12
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 35.39
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 203.68
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 34.78
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 31.86
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C007",
+                  "section": "二、要点速记",
+                  "text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 265.55
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.11
+                    },
+                    {
+                      "doc_id": "KB-M1-06",
+                      "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+                      "score": 39.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C008",
+                  "section": "二、要点速记",
+                  "text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.97）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 96.86
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 22.61
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 21.37
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 165.63
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 33.32
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 72.88
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 14.49
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 13.68
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C004",
+                  "section": "一、核心概念",
+                  "text": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与知识库条目「约束不可行时的降级策略」记录的领域误区表述一致（条目级对账 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M4-02",
+                      "citation": "安全滤波器与二次规划投影 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-02）",
+                      "score": 78.16
+                    },
+                    {
+                      "doc_id": "KB-M4-04",
+                      "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                      "score": 69.53
+                    },
+                    {
+                      "doc_id": "KB-M4-05",
+                      "citation": "安全约束的常见统计口径 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-05）",
+                      "score": 60.87
+                    }
+                  ],
+                  "operator": "REPLACE",
+                  "final_text": "约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。",
+                  "edit_distance": 0.8871
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 198.12
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 35.39
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 203.68
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 34.78
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 31.86
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C007",
+                  "section": "二、要点速记",
+                  "text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 265.55
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.11
+                    },
+                    {
+                      "doc_id": "KB-M1-06",
+                      "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+                      "score": 39.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C008",
+                  "section": "二、要点速记",
+                  "text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.97）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 96.86
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 22.61
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 21.37
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 8,
+                "冲突声明数": 1,
+                "投影介入率": 0.125,
+                "替换数": 1,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.8871,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "原始声明": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "原始声明": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "原始声明": "该量可作为通信必要性的量化判据。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "该量可作为通信必要性的量化判据。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C004",
+                  "section": "一、核心概念",
+                  "原始声明": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "原判定": "CONTRADICTED",
+                  "尝试": [
+                    {
+                      "算子": "REPLACE",
+                      "可行性": true,
+                      "复审判定": "SUPPORTED",
+                      "归一化编辑距离": 0.8871,
+                      "候选文本": "约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。"
+                    },
+                    {
+                      "算子": "DELETE",
+                      "可行性": true,
+                      "复审判定": "DELETED",
+                      "归一化编辑距离": 1.0,
+                      "候选文本": null
+                    }
+                  ],
+                  "核定过程的拒绝": [],
+                  "选定算子": "REPLACE",
+                  "最终文本": "约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。",
+                  "补充检索后判定": "CONTRADICTED"
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "原始声明": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "原始声明": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C007",
+                  "section": "二、要点速记",
+                  "原始声明": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C008",
+                  "section": "二、要点速记",
+                  "原始声明": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "guide",
+              "label": "实操指南",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-02",
+                  "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                  "score": 67.95
+                },
+                {
+                  "doc_id": "KB-M4-04",
+                  "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                  "score": 12.99
+                }
+              ],
+              "text_raw": "# 实操指南：因果效应用作通信必要性判据（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「因果效应用作通信必要性判据」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 因果效应用作通信必要性判据 §4",
+              "text_delivered": "# 实操指南：因果效应用作通信必要性判据（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「因果效应用作通信必要性判据」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 因果效应用作通信必要性判据 §4",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 3,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "步骤 1｜环境准备",
+                  "text": "确认 Python 版本与依赖，固定随机种子以保证可复现。",
+                  "最高重叠": 0.3947,
+                  "归类理由": "以操作性动词「确认」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 2｜最小可运行实现",
+                  "text": "按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。",
+                  "最高重叠": 0.314,
+                  "归类理由": "以操作性动词「按」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 3｜观察关键读数",
+                  "text": "记录与「因果效应用作通信必要性判据」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。",
+                  "最高重叠": 0.3371,
+                  "归类理由": "以操作性动词「记录」起句 ⇒ 流程指令，不是对领域事实的断言"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "quiz",
+              "label": "分阶测试题",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-02",
+                  "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                  "score": 67.95
+                },
+                {
+                  "doc_id": "KB-M4-04",
+                  "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                  "score": 12.99
+                }
+              ],
+              "text_raw": "# 分阶测试题：因果效应用作通信必要性判据（进阶）\n\n**题干**：在《因果效应用作通信必要性判据》中，「因果影响」的适用条件与代价分别是什么？\n\n**参考答案**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为\n\n**解析**：出处：《因果效应用作通信必要性判据》§4（KB-M3-02）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-02",
+              "text_delivered": "# 分阶测试题：因果效应用作通信必要性判据（进阶）\n\n**题干**：在《因果效应用作通信必要性判据》中，「因果影响」的适用条件与代价分别是什么？\n\n**参考答案**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为\n\n**解析**：出处：《因果效应用作通信必要性判据》§4（KB-M3-02）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-02",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 2,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "题干：在《因果效应用作通信必要性判据》中，「因果影响」的适用条件与代价分别是什么？",
+                  "最高重叠": 0.0,
+                  "归类理由": "疑问句：提出问题而不作断言 ⇒ 不计入幻觉率、不参与改写"
+                },
+                {
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "答案逐字取自知识库原文，可直接核对。",
+                  "最高重叠": 0.1935,
+                  "归类理由": "与证据最高重叠仅 0.19 且无领域术语 ⇒ 属操作性/流程性表述"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.93）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.93）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "原始声明": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            }
+          ],
+          "feedback": {
+            "correct": 3,
+            "total": 5,
+            "correct_rate": 0.6
+          }
+        },
+        {
+          "knowledge_point": "门控通信与通信稀疏度",
+          "difficulty": "进阶",
+          "resources": [
+            {
+              "kind": "lecture",
+              "label": "定制讲义",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-03",
+                  "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                  "score": 62.53
+                },
+                {
+                  "doc_id": "KB-M3-01",
+                  "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                  "score": 19.99
+                }
+              ],
+              "text_raw": "# 定制讲义：门控通信与通信稀疏度\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。\n\n## 二、要点速记\n- **门控通信**：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。\n- **通信稀疏度**：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。\n- **协同开销**：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 门控通信与通信稀疏度 §2",
+              "text_delivered": "# 定制讲义：门控通信与通信稀疏度\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。\n\n## 二、要点速记\n- **门控通信**：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。\n- **通信稀疏度**：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。\n- **协同开销**：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 门控通信与通信稀疏度 §2",
+              "pre_audit": {
+                "声明总数": 6,
+                "非断言性文本_不计入": 0,
+                "SUPPORTED": 6,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 6,
+                "投影处置数": 0,
+                "SUPPORTED": 6,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 200.13
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 53.97
+                    },
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 38.01
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 180.88
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.19
+                    },
+                    {
+                      "doc_id": "KB-M3-06",
+                      "citation": "通信的价值评估口径 §4（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-06）",
+                      "score": 29.6
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 172.84
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 46.69
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 35.44
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C004",
+                  "section": "二、要点速记",
+                  "text": "门控通信：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 223.95
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 60.86
+                    },
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 44.13
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "门控通信：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "通信稀疏度：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 214.74
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 48.07
+                    },
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 36.5
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信稀疏度：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "协同开销：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 204.42
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 46.4
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 35.08
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "协同开销：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 200.13
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 53.97
+                    },
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 38.01
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 180.88
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.19
+                    },
+                    {
+                      "doc_id": "KB-M3-06",
+                      "citation": "通信的价值评估口径 §4（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-06）",
+                      "score": 29.6
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 172.84
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 46.69
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 35.44
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C004",
+                  "section": "二、要点速记",
+                  "text": "门控通信：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 223.95
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 60.86
+                    },
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 44.13
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "门控通信：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "通信稀疏度：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 214.74
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 48.07
+                    },
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 36.5
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信稀疏度：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "协同开销：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 204.42
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 46.4
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 35.08
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "协同开销：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 6,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "原始声明": "门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "原始声明": "通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标；",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "原始声明": "稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "稀疏度越高说明协同越省成本，但过度稀疏会削弱协同收益，需要与任务性能一并评估。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C004",
+                  "section": "二、要点速记",
+                  "原始声明": "门控通信：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "门控通信：门控通信（gated communication）指智能体先判决\"是否需要发送\"再决定消息内容，只有判决器输出超过阈值时才占用信道。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "原始声明": "通信稀疏度：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "通信稀疏度：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "原始声明": "协同开销：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "协同开销：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "guide",
+              "label": "实操指南",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-03",
+                  "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                  "score": 62.53
+                },
+                {
+                  "doc_id": "KB-M3-01",
+                  "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                  "score": 19.99
+                }
+              ],
+              "text_raw": "# 实操指南：门控通信与通信稀疏度（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「门控通信与通信稀疏度」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 门控通信与通信稀疏度 §2",
+              "text_delivered": "# 实操指南：门控通信与通信稀疏度（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「门控通信与通信稀疏度」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 门控通信与通信稀疏度 §2",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 3,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "步骤 1｜环境准备",
+                  "text": "确认 Python 版本与依赖，固定随机种子以保证可复现。",
+                  "最高重叠": 0.3947,
+                  "归类理由": "以操作性动词「确认」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 2｜最小可运行实现",
+                  "text": "按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。",
+                  "最高重叠": 0.314,
+                  "归类理由": "以操作性动词「按」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 3｜观察关键读数",
+                  "text": "记录与「门控通信与通信稀疏度」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。",
+                  "最高重叠": 0.2785,
+                  "归类理由": "以操作性动词「记录」起句 ⇒ 流程指令，不是对领域事实的断言"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "quiz",
+              "label": "分阶测试题",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-03",
+                  "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                  "score": 62.53
+                },
+                {
+                  "doc_id": "KB-M3-01",
+                  "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                  "score": 19.99
+                }
+              ],
+              "text_raw": "# 分阶测试题：门控通信与通信稀疏度（进阶）\n\n**题干**：在《门控通信与通信稀疏度》中，「门控通信」的适用条件与代价分别是什么？\n\n**参考答案**：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标\n\n**解析**：出处：《门控通信与通信稀疏度》§2（KB-M3-03）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-03",
+              "text_delivered": "# 分阶测试题：门控通信与通信稀疏度（进阶）\n\n**题干**：在《门控通信与通信稀疏度》中，「门控通信」的适用条件与代价分别是什么？\n\n**参考答案**：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标\n\n**解析**：出处：《门控通信与通信稀疏度》§2（KB-M3-03）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-03",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 2,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "分阶测试题：门控通信与通信稀疏度（进阶）",
+                  "text": "题干：在《门控通信与通信稀疏度》中，「门控通信」的适用条件与代价分别是什么？",
+                  "最高重叠": 0.0,
+                  "归类理由": "疑问句：提出问题而不作断言 ⇒ 不计入幻觉率、不参与改写"
+                },
+                {
+                  "section": "分阶测试题：门控通信与通信稀疏度（进阶）",
+                  "text": "答案逐字取自知识库原文，可直接核对。",
+                  "最高重叠": 0.1935,
+                  "归类理由": "与证据最高重叠仅 0.19 且无领域术语 ⇒ 属操作性/流程性表述"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：门控通信与通信稀疏度（进阶）",
+                  "text": "参考答案：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.89）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 180.88
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.19
+                    },
+                    {
+                      "doc_id": "KB-M3-06",
+                      "citation": "通信的价值评估口径 §4（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-06）",
+                      "score": 29.6
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：门控通信与通信稀疏度（进阶）",
+                  "text": "参考答案：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「门控通信与通信稀疏度」表述一致（重叠 0.89）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 180.88
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.19
+                    },
+                    {
+                      "doc_id": "KB-M3-06",
+                      "citation": "通信的价值评估口径 §4（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-06）",
+                      "score": 29.6
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：门控通信与通信稀疏度（进阶）",
+                  "原始声明": "参考答案：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "参考答案：通信稀疏度定义为实际通信次数与最大可能通信次数之比，是衡量协同开销的核心指标",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            }
+          ],
+          "feedback": {
+            "correct": 4,
+            "total": 5,
+            "correct_rate": 0.8
+          }
+        }
+      ],
+      "feedback": {
+        "round": 1,
+        "correct": 7,
+        "total": 10,
+        "correct_rate": 0.7,
+        "per_kp": [
+          {
+            "knowledge_point": "因果效应用作通信必要性判据",
+            "difficulty": "进阶",
+            "correct": 3,
+            "total": 5
+          },
+          {
+            "knowledge_point": "门控通信与通信稀疏度",
+            "difficulty": "进阶",
+            "correct": 4,
+            "total": 5
+          }
+        ],
+        "action": "维持当前难度",
+        "gate_message": {
+          "mtype": "dispute",
+          "sender": "A3 审核纠偏",
+          "receiver": "A4 协同调度",
+          "impact": 0.5,
+          "sent": true,
+          "reason": "影响分 0.500 > τ=0.30",
+          "chars": 85,
+          "payload_brief": "{\"disputes\": 0, \"contradicted\": 1, \"feedback\": {\"correct_rate\": 0.7, \"attempts\": 10}}"
+        }
+      }
+    },
+    {
+      "round": 2,
+      "plan": {
+        "round": 2,
+        "targets": [
+          {
+            "knowledge_point": "因果效应用作通信必要性判据",
+            "mastery": 0.6174,
+            "difficulty_base": "进阶",
+            "预测正确率": 0.6791,
+            "知识点台阶": "挑战",
+            "目标类型": "能力拓展（无盲区，推送尚未精通的最难知识点）",
+            "difficulty": "进阶",
+            "difficulty_依据": "上一轮实测正确率 60% 落在心流区间 ⇒ 维持 进阶",
+            "difficulty_gated_default": true
+          },
+          {
+            "knowledge_point": "消息压缩与信息瓶颈",
+            "mastery": 0.6248,
+            "difficulty_base": "进阶",
+            "预测正确率": 0.6873,
+            "知识点台阶": "挑战",
+            "目标类型": "能力拓展（无盲区，推送尚未精通的最难知识点）",
+            "difficulty": "进阶",
+            "difficulty_依据": "由掌握度估计 0.625 选定「进阶」档，预测正确率 0.69（心流区间目标中心 0.70）",
+            "difficulty_gated_default": true
+          }
+        ],
+        "difficulty_adjustments": [],
+        "超出可及范围_暂缓": [],
+        "暂缓数": 0,
+        "gate_message": {
+          "mtype": "diagnosis",
+          "sender": "A1 学情诊断",
+          "receiver": "A2 领域知识生成",
+          "impact": 0.0,
+          "sent": false,
+          "reason": "影响分 0.000 ≤ τ=0.30",
+          "chars": 1020,
+          "payload_brief": "{\"targets\": [{\"knowledge_point\": \"因果效应用作通信必要性判据\", \"mastery\": 0.6174, \"difficulty_base\": \"进阶\", \"预测正确率\": 0.6791, \"知识点台阶\": …"
+        },
+        "action": "维持当前难度"
+      },
+      "items": [
+        {
+          "knowledge_point": "因果效应用作通信必要性判据",
+          "difficulty": "进阶",
+          "resources": [
+            {
+              "kind": "lecture",
+              "label": "定制讲义",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-02",
+                  "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                  "score": 67.95
+                },
+                {
+                  "doc_id": "KB-M4-04",
+                  "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                  "score": 12.99
+                }
+              ],
+              "text_raw": "# 定制讲义：因果效应用作通信必要性判据\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。该量可作为通信必要性的量化判据。\n当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。\n\n## 二、要点速记\n- **因果影响**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **社会影响力**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **内在奖励**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。\n- **通信必要性**：该量可作为通信必要性的量化判据。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 因果效应用作通信必要性判据 §4",
+              "text_delivered": "# 定制讲义：因果效应用作通信必要性判据\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。该量可作为通信必要性的量化判据。\n约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。\n\n## 二、要点速记\n- **因果影响**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **社会影响力**：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。\n- **内在奖励**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。\n- **通信必要性**：该量可作为通信必要性的量化判据。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 因果效应用作通信必要性判据 §4\n\n## 附：审核说明\n本资源的每一条结论都经过声明级取证审核，处理结果如下：\n\n- **修正 1 条**（与知识库冲突，已做最小改写，平均归一化编辑距离 0.8871）：\n  - `C004` 当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。 → 约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。\n\n> 完整记录（含每条声明的检索证据、判定理由、候选改写与可行性复审结果）见 `audit_trace.json`。\n",
+              "pre_audit": {
+                "声明总数": 8,
+                "非断言性文本_不计入": 0,
+                "SUPPORTED": 7,
+                "CONTRADICTED": 1,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.125,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.125
+              },
+              "post_audit": {
+                "交付声明数": 8,
+                "投影处置数": 0,
+                "SUPPORTED": 8,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 165.63
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 33.32
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 72.88
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 14.49
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 13.68
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C004",
+                  "section": "一、核心概念",
+                  "text": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "verdict": "CONTRADICTED",
+                  "reason": "与知识库条目「约束不可行时的降级策略」记录的领域误区表述一致（条目级对账 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M4-02",
+                      "citation": "安全滤波器与二次规划投影 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-02）",
+                      "score": 78.16
+                    },
+                    {
+                      "doc_id": "KB-M4-04",
+                      "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                      "score": 69.53
+                    },
+                    {
+                      "doc_id": "KB-M4-05",
+                      "citation": "安全约束的常见统计口径 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-05）",
+                      "score": 60.87
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 198.12
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 35.39
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 203.68
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 34.78
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 31.86
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C007",
+                  "section": "二、要点速记",
+                  "text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 265.55
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.11
+                    },
+                    {
+                      "doc_id": "KB-M1-06",
+                      "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+                      "score": 39.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C008",
+                  "section": "二、要点速记",
+                  "text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.97）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 96.86
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 22.61
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 21.37
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 165.63
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 33.32
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 72.88
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 14.49
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 13.68
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C004",
+                  "section": "一、核心概念",
+                  "text": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与知识库条目「约束不可行时的降级策略」记录的领域误区表述一致（条目级对账 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M4-02",
+                      "citation": "安全滤波器与二次规划投影 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-02）",
+                      "score": 78.16
+                    },
+                    {
+                      "doc_id": "KB-M4-04",
+                      "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                      "score": 69.53
+                    },
+                    {
+                      "doc_id": "KB-M4-05",
+                      "citation": "安全约束的常见统计口径 §4（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-05）",
+                      "score": 60.87
+                    }
+                  ],
+                  "operator": "REPLACE",
+                  "final_text": "约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。",
+                  "edit_distance": 0.8871
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 198.12
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 35.39
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 30.45
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.98）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 203.68
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 34.78
+                    },
+                    {
+                      "doc_id": "KB-M2-04",
+                      "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+                      "score": 31.86
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C007",
+                  "section": "二、要点速记",
+                  "text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 265.55
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 41.11
+                    },
+                    {
+                      "doc_id": "KB-M1-06",
+                      "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+                      "score": 39.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C008",
+                  "section": "二、要点速记",
+                  "text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.97）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 96.86
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 22.61
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 21.37
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 8,
+                "冲突声明数": 1,
+                "投影介入率": 0.125,
+                "替换数": 1,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.8871,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "原始声明": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "原始声明": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "原始声明": "该量可作为通信必要性的量化判据。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "该量可作为通信必要性的量化判据。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C004",
+                  "section": "一、核心概念",
+                  "原始声明": "当安全滤波器的约束不可行时，可以直接跳过该步的约束检查、按原动作执行，这样能避免系统报错中断。",
+                  "原判定": "CONTRADICTED",
+                  "尝试": [
+                    {
+                      "算子": "REPLACE",
+                      "可行性": true,
+                      "复审判定": "SUPPORTED",
+                      "归一化编辑距离": 0.8871,
+                      "候选文本": "约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。"
+                    },
+                    {
+                      "算子": "DELETE",
+                      "可行性": true,
+                      "复审判定": "DELETED",
+                      "归一化编辑距离": 1.0,
+                      "候选文本": null
+                    }
+                  ],
+                  "核定过程的拒绝": [],
+                  "选定算子": "REPLACE",
+                  "最终文本": "约束不可行时必须定义明确且可审计的降级策略（放松约束、退化为保守动作、或拒绝该步决策并报错），绝不能静默返回未经验证的结果。",
+                  "补充检索后判定": "CONTRADICTED"
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "原始声明": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "因果影响：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "原始声明": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "社会影响力：社会影响力（social influence）用智能体 i 的动作分布变化去度量其对智能体 j 决策的因果影响。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C007",
+                  "section": "二、要点速记",
+                  "原始声明": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "内在奖励：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C008",
+                  "section": "二、要点速记",
+                  "原始声明": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "通信必要性：该量可作为通信必要性的量化判据。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "guide",
+              "label": "实操指南",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-02",
+                  "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                  "score": 67.95
+                },
+                {
+                  "doc_id": "KB-M4-04",
+                  "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                  "score": 12.99
+                }
+              ],
+              "text_raw": "# 实操指南：因果效应用作通信必要性判据（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「因果效应用作通信必要性判据」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 因果效应用作通信必要性判据 §4",
+              "text_delivered": "# 实操指南：因果效应用作通信必要性判据（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「因果效应用作通信必要性判据」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 因果效应用作通信必要性判据 §4",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 3,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "步骤 1｜环境准备",
+                  "text": "确认 Python 版本与依赖，固定随机种子以保证可复现。",
+                  "最高重叠": 0.3947,
+                  "归类理由": "以操作性动词「确认」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 2｜最小可运行实现",
+                  "text": "按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。",
+                  "最高重叠": 0.314,
+                  "归类理由": "以操作性动词「按」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 3｜观察关键读数",
+                  "text": "记录与「因果效应用作通信必要性判据」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。",
+                  "最高重叠": 0.3371,
+                  "归类理由": "以操作性动词「记录」起句 ⇒ 流程指令，不是对领域事实的断言"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "quiz",
+              "label": "分阶测试题",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-02",
+                  "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                  "score": 67.95
+                },
+                {
+                  "doc_id": "KB-M4-04",
+                  "citation": "约束不可行时的降级策略 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-04）",
+                  "score": 12.99
+                }
+              ],
+              "text_raw": "# 分阶测试题：因果效应用作通信必要性判据（进阶）\n\n**题干**：在《因果效应用作通信必要性判据》中，「因果影响」的适用条件与代价分别是什么？\n\n**参考答案**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为\n\n**解析**：出处：《因果效应用作通信必要性判据》§4（KB-M3-02）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-02",
+              "text_delivered": "# 分阶测试题：因果效应用作通信必要性判据（进阶）\n\n**题干**：在《因果效应用作通信必要性判据》中，「因果影响」的适用条件与代价分别是什么？\n\n**参考答案**：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为\n\n**解析**：出处：《因果效应用作通信必要性判据》§4（KB-M3-02）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-02",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 2,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "题干：在《因果效应用作通信必要性判据》中，「因果影响」的适用条件与代价分别是什么？",
+                  "最高重叠": 0.0,
+                  "归类理由": "疑问句：提出问题而不作断言 ⇒ 不计入幻觉率、不参与改写"
+                },
+                {
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "答案逐字取自知识库原文，可直接核对。",
+                  "最高重叠": 0.1935,
+                  "归类理由": "与证据最高重叠仅 0.19 且无领域术语 ⇒ 属操作性/流程性表述"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.93）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「因果效应用作通信必要性判据」表述一致（重叠 0.93）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-02",
+                      "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+                      "score": 247.65
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 39.27
+                    },
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 32.59
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：因果效应用作通信必要性判据（进阶）",
+                  "原始声明": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "参考答案：把该量作为内在奖励，可以促使智能体只在\"自己的信息确实改变对方决策\"时才施加影响，从而抑制无效的、冗余的通信与干扰行为",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            }
+          ],
+          "feedback": {
+            "correct": 3,
+            "total": 5,
+            "correct_rate": 0.6
+          }
+        },
+        {
+          "knowledge_point": "消息压缩与信息瓶颈",
+          "difficulty": "进阶",
+          "resources": [
+            {
+              "kind": "lecture",
+              "label": "定制讲义",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-04",
+                  "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                  "score": 70.78
+                },
+                {
+                  "doc_id": "KB-M3-01",
+                  "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                  "score": 16.38
+                }
+              ],
+              "text_raw": "# 定制讲义：消息压缩与信息瓶颈\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。\n消息维度越大，智能体之间传递的信息越完整，通信效果一定越好，因此无需做消息压缩。\n\n## 二、要点速记\n- **消息压缩**：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。\n- **消息维度**：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。\n- **压缩率**：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 消息压缩与信息瓶颈 §3",
+              "text_delivered": "# 定制讲义：消息压缩与信息瓶颈\n\n本资源面向学习者 L002（硕士研究生一年级 多智能体强化学习方向｜理论测试 88/100｜实操经历：做过多智能体项目），目标难度档：进阶。\n\n## 一、核心概念\n消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。\n消息维度不是越大越好：过度压缩会丢失关键信息，压缩不足则收益有限，应当通过\"压缩率—任务性能\"的对照实验来确定消息维度。\n\n## 二、要点速记\n- **消息压缩**：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。\n- **消息维度**：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。\n- **压缩率**：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。\n\n## 三、学习提示\n- 本讲义的每条结论均可在文末证据出处的原文中核对；若发现与教材表述不一致，以证据原文为准。\n\n## 四、证据出处\n- 消息压缩与信息瓶颈 §3\n\n## 附：审核说明\n本资源的每一条结论都经过声明级取证审核，处理结果如下：\n\n- **修正 1 条**（与知识库冲突，已做最小改写，平均归一化编辑距离 0.7833）：\n  - `C003` 消息维度越大，智能体之间传递的信息越完整，通信效果一定越好，因此无需做消息压缩。 → 消息维度不是越大越好：过度压缩会丢失关键信息，压缩不足则收益有限，应当通过\"压缩率—任务性能\"的对照实验来确定消息维度。\n\n> 完整记录（含每条声明的检索证据、判定理由、候选改写与可行性复审结果）见 `audit_trace.json`。\n",
+              "pre_audit": {
+                "声明总数": 6,
+                "非断言性文本_不计入": 0,
+                "SUPPORTED": 5,
+                "CONTRADICTED": 1,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.1667,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.1667
+              },
+              "post_audit": {
+                "交付声明数": 6,
+                "投影处置数": 0,
+                "SUPPORTED": 6,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 310.93
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 49.33
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 44.53
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 277.43
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 48.59
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 33.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "消息维度越大，智能体之间传递的信息越完整，通信效果一定越好，因此无需做消息压缩。",
+                  "verdict": "CONTRADICTED",
+                  "reason": "与知识库条目「消息压缩与信息瓶颈」记录的领域误区表述一致（条目级对账 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 99.55
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 44.03
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 43.41
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "消息维度越大，智能体之间传递的信息越完整，通信效果一定越好，因此无需做消息压缩。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C004",
+                  "section": "二、要点速记",
+                  "text": "消息压缩：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 348.61
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 60.22
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 50.16
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "消息压缩：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "消息维度：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 303.65
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 55.86
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 43.07
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "消息维度：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "压缩率：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 302.93
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 48.59
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 33.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "压缩率：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "text": "消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 310.93
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 49.33
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 44.53
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "text": "过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 277.43
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 48.59
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 33.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "text": "消息维度越大，智能体之间传递的信息越完整，通信效果一定越好，因此无需做消息压缩。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与知识库条目「消息压缩与信息瓶颈」记录的领域误区表述一致（条目级对账 1.00）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 99.55
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 44.03
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 43.41
+                    }
+                  ],
+                  "operator": "REPLACE",
+                  "final_text": "消息维度不是越大越好：过度压缩会丢失关键信息，压缩不足则收益有限，应当通过\"压缩率—任务性能\"的对照实验来确定消息维度。",
+                  "edit_distance": 0.7833
+                },
+                {
+                  "cid": "C004",
+                  "section": "二、要点速记",
+                  "text": "消息压缩：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 348.61
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 60.22
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 50.16
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "消息压缩：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "text": "消息维度：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 303.65
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 55.86
+                    },
+                    {
+                      "doc_id": "KB-M3-01",
+                      "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                      "score": 43.07
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "消息维度：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "edit_distance": 0
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "text": "压缩率：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.99）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 302.93
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 48.59
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 33.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "压缩率：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 6,
+                "冲突声明数": 1,
+                "投影介入率": 0.1667,
+                "替换数": 1,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.7833,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "一、核心概念",
+                  "原始声明": "消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C002",
+                  "section": "一、核心概念",
+                  "原始声明": "过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C003",
+                  "section": "一、核心概念",
+                  "原始声明": "消息维度越大，智能体之间传递的信息越完整，通信效果一定越好，因此无需做消息压缩。",
+                  "原判定": "CONTRADICTED",
+                  "尝试": [
+                    {
+                      "算子": "REPLACE",
+                      "可行性": true,
+                      "复审判定": "SUPPORTED",
+                      "归一化编辑距离": 0.7833,
+                      "候选文本": "消息维度不是越大越好：过度压缩会丢失关键信息，压缩不足则收益有限，应当通过\"压缩率—任务性能\"的对照实验来确定消息维度。"
+                    },
+                    {
+                      "算子": "DELETE",
+                      "可行性": true,
+                      "复审判定": "DELETED",
+                      "归一化编辑距离": 1.0,
+                      "候选文本": null
+                    }
+                  ],
+                  "核定过程的拒绝": [],
+                  "选定算子": "REPLACE",
+                  "最终文本": "消息维度不是越大越好：过度压缩会丢失关键信息，压缩不足则收益有限，应当通过\"压缩率—任务性能\"的对照实验来确定消息维度。",
+                  "补充检索后判定": "CONTRADICTED"
+                },
+                {
+                  "cid": "C004",
+                  "section": "二、要点速记",
+                  "原始声明": "消息压缩：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "消息压缩：消息压缩把高维观测压成低维消息（例如 16 维消息对应 26 维观测），在降低通信带宽的同时迫使编码器保留对协同决策最关键的成分。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C005",
+                  "section": "二、要点速记",
+                  "原始声明": "消息维度：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "消息维度：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                },
+                {
+                  "cid": "C006",
+                  "section": "二、要点速记",
+                  "原始声明": "压缩率：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "压缩率：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "guide",
+              "label": "实操指南",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-04",
+                  "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                  "score": 70.78
+                },
+                {
+                  "doc_id": "KB-M3-01",
+                  "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                  "score": 16.38
+                }
+              ],
+              "text_raw": "# 实操指南：消息压缩与信息瓶颈（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「消息压缩与信息瓶颈」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 消息压缩与信息瓶颈 §3",
+              "text_delivered": "# 实操指南：消息压缩与信息瓶颈（难度档：进阶）\n\n适用对象：L002\n\n## 步骤 1｜环境准备\n确认 Python 版本与依赖，固定随机种子以保证可复现。\n\n## 步骤 2｜最小可运行实现\n按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。\n\n## 步骤 3｜观察关键读数\n记录与「消息压缩与信息瓶颈」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。\n\n## 步骤 4｜常见坑\n- 超参直接照搬其他环境而不做标定，是训练失败的最常见根因。\n\n## 溯源\n- 消息压缩与信息瓶颈 §3",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 3,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "步骤 1｜环境准备",
+                  "text": "确认 Python 版本与依赖，固定随机种子以保证可复现。",
+                  "最高重叠": 0.3947,
+                  "归类理由": "以操作性动词「确认」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 2｜最小可运行实现",
+                  "text": "按本知识点的最小示例搭好训练回路，先只跑 1 个随机种子的短程配置，确认日志与评估脚本都能产出指标。",
+                  "最高重叠": 0.314,
+                  "归类理由": "以操作性动词「按」起句 ⇒ 流程指令，不是对领域事实的断言"
+                },
+                {
+                  "section": "步骤 3｜观察关键读数",
+                  "text": "记录与「消息压缩与信息瓶颈」直接相关的读数（而不是只看总奖励），确认读数随训练的变化方向符合预期。",
+                  "最高重叠": 0.2278,
+                  "归类理由": "以操作性动词「记录」起句 ⇒ 流程指令，不是对领域事实的断言"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M5-07",
+                      "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+                      "score": 75.75
+                    },
+                    {
+                      "doc_id": "KB-M1-03",
+                      "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+                      "score": 29.49
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 17.74
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "步骤 4｜常见坑",
+                  "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            },
+            {
+              "kind": "quiz",
+              "label": "分阶测试题",
+              "difficulty": "进阶",
+              "evidence": [
+                {
+                  "doc_id": "KB-M3-04",
+                  "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                  "score": 70.78
+                },
+                {
+                  "doc_id": "KB-M3-01",
+                  "citation": "可学习通信与通信信道 §3（Foerster et al. Learning to Communicate with Deep Multi-Agent Reinforcement Learning. NeurIPS 2016.，KB-M3-01）",
+                  "score": 16.38
+                }
+              ],
+              "text_raw": "# 分阶测试题：消息压缩与信息瓶颈（进阶）\n\n**题干**：在《消息压缩与信息瓶颈》中，「消息压缩」的适用条件与代价分别是什么？\n\n**参考答案**：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好\n\n**解析**：出处：《消息压缩与信息瓶颈》§3（KB-M3-04）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-04",
+              "text_delivered": "# 分阶测试题：消息压缩与信息瓶颈（进阶）\n\n**题干**：在《消息压缩与信息瓶颈》中，「消息压缩」的适用条件与代价分别是什么？\n\n**参考答案**：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好\n\n**解析**：出处：《消息压缩与信息瓶颈》§3（KB-M3-04）。答案逐字取自知识库原文，可直接核对。\n\n**溯源**：KB-M3-04",
+              "pre_audit": {
+                "声明总数": 1,
+                "非断言性文本_不计入": 2,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/总数)": 0.0,
+                "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+              },
+              "post_audit": {
+                "交付声明数": 1,
+                "投影处置数": 0,
+                "SUPPORTED": 1,
+                "CONTRADICTED": 0,
+                "UNVERIFIED": 0,
+                "幻觉率_宽口径(冲突/交付)": 0.0,
+                "幻觉率_严口径(交付)": 0.0
+              },
+              "non_domain": [
+                {
+                  "section": "分阶测试题：消息压缩与信息瓶颈（进阶）",
+                  "text": "题干：在《消息压缩与信息瓶颈》中，「消息压缩」的适用条件与代价分别是什么？",
+                  "最高重叠": 0.0,
+                  "归类理由": "疑问句：提出问题而不作断言 ⇒ 不计入幻觉率、不参与改写"
+                },
+                {
+                  "section": "分阶测试题：消息压缩与信息瓶颈（进阶）",
+                  "text": "答案逐字取自知识库原文，可直接核对。",
+                  "最高重叠": 0.1935,
+                  "归类理由": "与证据最高重叠仅 0.19 且无领域术语 ⇒ 属操作性/流程性表述"
+                }
+              ],
+              "claims_pre": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：消息压缩与信息瓶颈（进阶）",
+                  "text": "参考答案：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.92）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 277.43
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 48.59
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 33.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好",
+                  "edit_distance": 0
+                }
+              ],
+              "claims": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：消息压缩与信息瓶颈（进阶）",
+                  "text": "参考答案：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好",
+                  "verdict": "SUPPORTED",
+                  "reason": "与证据「消息压缩与信息瓶颈」表述一致（重叠 0.92）",
+                  "evidence": [
+                    {
+                      "doc_id": "KB-M3-04",
+                      "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+                      "score": 277.43
+                    },
+                    {
+                      "doc_id": "KB-M3-03",
+                      "citation": "门控通信与通信稀疏度 §2（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-03）",
+                      "score": 48.59
+                    },
+                    {
+                      "doc_id": "KB-M1-08",
+                      "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+                      "score": 33.79
+                    }
+                  ],
+                  "operator": "KEEP",
+                  "final_text": "参考答案：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好",
+                  "edit_distance": 0
+                }
+              ],
+              "disputes": [],
+              "projection_stats": {
+                "声明总数": 1,
+                "冲突声明数": 0,
+                "投影介入率": 0.0,
+                "替换数": 0,
+                "限定化数": 0,
+                "删除数": 0,
+                "平均编辑距离": 0.0,
+                "残余未合规数": 0,
+                "残余未合规比例": 0.0,
+                "未溯源保留数": 0,
+                "可行性": true
+              },
+              "projection_records": [
+                {
+                  "cid": "C001",
+                  "section": "分阶测试题：消息压缩与信息瓶颈（进阶）",
+                  "原始声明": "参考答案：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好",
+                  "原判定": "SUPPORTED",
+                  "尝试": [],
+                  "核定过程的拒绝": [],
+                  "选定算子": "KEEP",
+                  "最终文本": "参考答案：过度压缩会丢信息、压缩不足则收益有限，实践中应通过\"压缩率—任务性能\"的对照实验确定消息维度，而不是默认越大越好",
+                  "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+                }
+              ],
+              "feasible": true
+            }
+          ],
+          "feedback": {
+            "correct": 5,
+            "total": 5,
+            "correct_rate": 1.0
+          }
+        }
+      ],
+      "feedback": {
+        "round": 2,
+        "correct": 8,
+        "total": 10,
+        "correct_rate": 0.8,
+        "per_kp": [
+          {
+            "knowledge_point": "因果效应用作通信必要性判据",
+            "difficulty": "进阶",
+            "correct": 3,
+            "total": 5
+          },
+          {
+            "knowledge_point": "消息压缩与信息瓶颈",
+            "difficulty": "进阶",
+            "correct": 5,
+            "total": 5
+          }
+        ],
+        "action": "维持当前难度",
+        "gate_message": {
+          "mtype": "dispute",
+          "sender": "A3 审核纠偏",
+          "receiver": "A4 协同调度",
+          "impact": 1.0,
+          "sent": true,
+          "reason": "影响分 1.000 > τ=0.30",
+          "chars": 85,
+          "payload_brief": "{\"disputes\": 0, \"contradicted\": 2, \"feedback\": {\"correct_rate\": 0.8, \"attempts\": 10}}"
+        }
+      }
+    }
+  ],
+  "gate_stats": {
+    "候选消息数": 4,
+    "实际发送数": 2,
+    "通信稀疏度(发送/候选)": 0.5,
+    "token节省率(按字符数)": 0.9003,
+    "发送字符数": 170,
+    "全部字符数": 1705
+  },
+  "elapsed_sec": 0.05,
+  "summary": {
+    "轮数": 2,
+    "涉及知识点数": 3,
+    "资源形态数": 3,
+    "声明总数": 36,
+    "非断言性文本数(不计入幻觉率)": 20,
+    "投影前_幻觉率_宽口径": 0.0833,
+    "投影前_幻觉率_严口径": 0.0833,
+    "交付声明数": 36,
+    "投影后_幻觉率_宽口径": 0.0,
+    "投影后_幻觉率_严口径": 0.0,
+    "投影介入率": 0.0347,
+    "平均归一化编辑距离": 0.8525,
+    "交叉验证争议数": 0,
+    "适配率(心流区间[0.6,0.8])": 0.75,
+    "适配准确率(决策口径)": 1.0,
+    "目标知识点覆盖率": 1.0,
+    "全库知识点覆盖率": 0.0882,
+    "门控": {
+      "候选消息数": 4,
+      "实际发送数": 2,
+      "通信稀疏度(发送/候选)": 0.5,
+      "token节省率(按字符数)": 0.9003,
+      "发送字符数": 170,
+      "全部字符数": 1705
+    }
+  }
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>学情-资源匹配度报告 — L003</title>
+<style>
+ :root{--navy:#1F3B57;--teal:#2E8B8B;--coral:#EE6A5F;--ink:#1B2733;--ink2:#48596B;--light:#EEF3F6}
+ *{box-sizing:border-box}
+ body{margin:0;background:#F7F9FA;color:var(--ink);
+      font-family:"Microsoft YaHei","PingFang SC","Source Han Sans SC",sans-serif;line-height:1.7}
+ .wrap{max-width:1000px;margin:0 auto;padding:0 0 60px}
+ header{background:var(--navy);color:#fff;padding:26px 34px}
+ header h1{margin:0;font-size:21px;font-weight:600}
+ header .sub{opacity:.82;font-size:13px;margin-top:6px}
+ .card{background:#fff;margin:18px 24px;padding:22px 26px;border-radius:10px;
+       box-shadow:0 1px 3px rgba(31,59,87,.10)}
+ .card h2{margin:0 0 4px;font-size:16px;color:var(--navy)}
+ .card .cap{font-size:12.5px;color:var(--ink2);margin:0 0 16px}
+ table{border-collapse:collapse;width:100%;font-size:13px}
+ th,td{border-bottom:1px solid #E6ECF1;padding:7px 10px;text-align:left}
+ th{background:var(--light);color:var(--navy);font-weight:600}
+ td.v{font-variant-numeric:tabular-nums;color:var(--navy);font-weight:600}
+ .kv{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:13px;color:var(--ink2)}
+ .kv b{color:var(--navy)}
+ .note{background:#FFF8EC;border-left:3px solid #C88A2E;padding:10px 14px;
+       font-size:12.5px;color:var(--ink2);margin-top:14px;border-radius:0 6px 6px 0}
+ footer{text-align:center;font-size:12px;color:#8494A6;margin-top:26px}
+</style></head><body><div class="wrap">
+<header>
+  <h1>学情-资源匹配度报告</h1>
+  <div class="sub">学习者 L003 ｜ 生成于 2026-09-22 01:00:47 ｜ 后端 mock ｜ 反馈来源 LearnerSim(模拟)</div>
+</header>
+
+<div class="card">
+  <h2>一、盲区定位图</h2>
+  <p class="cap">掌握度低于 0.60 的知识点即为盲区，按掌握度升序排列——越靠上越应先补。
+     共检出盲区 <b>31</b> 个。</p>
+  <svg viewBox="0 0 880 332" width="100%" role="img" aria-label="盲区定位图">
+<text x="0" y="18" font-size="13" fill="#48596B">知识点掌握度估计（条越短越需要优先补；虚线为盲区阈值 0.60）</text>
+<line x1="606.0" y1="34" x2="606.0" y2="318" stroke="#C88A2E" stroke-dasharray="4 3" stroke-width="1.5"/>
+<text x="610.0" y="328" font-size="11" fill="#C88A2E">0.60</text>
+<text x="0" y="50" font-size="12" fill="#1B2733">因果效应用作通信必要性判据</text>
+<rect x="300" y="38" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="50" font-size="11" fill="#48596B">0.067</text>
+<text x="0" y="84" font-size="12" fill="#1B2733">门控通信与通信稀疏度</text>
+<rect x="300" y="72" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="84" font-size="11" fill="#48596B">0.067</text>
+<text x="0" y="118" font-size="12" fill="#1B2733">消息压缩与信息瓶颈</text>
+<rect x="300" y="106" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="118" font-size="11" fill="#48596B">0.067</text>
+<text x="0" y="152" font-size="12" fill="#1B2733">辩论机制与交叉验证</text>
+<rect x="300" y="140" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="152" font-size="11" fill="#48596B">0.067</text>
+<text x="0" y="186" font-size="12" fill="#1B2733">通信的价值评估口径</text>
+<rect x="300" y="174" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="186" font-size="11" fill="#48596B">0.067</text>
+<text x="0" y="220" font-size="12" fill="#1B2733">控制屏障函数（CBF）</text>
+<rect x="300" y="208" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="220" font-size="11" fill="#48596B">0.067</text>
+<text x="0" y="254" font-size="12" fill="#1B2733">安全滤波器与二次规划投影</text>
+<rect x="300" y="242" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="254" font-size="11" fill="#48596B">0.067</text>
+<text x="0" y="288" font-size="12" fill="#1B2733">最小改动投影的意义</text>
+<rect x="300" y="276" width="34.1" height="14" rx="4" fill="#EE6A5F"/>
+<text x="340.1" y="288" font-size="11" fill="#48596B">0.067</text>
+</svg>
+</div>
+
+<div class="card">
+  <h2>二、难度匹配曲线</h2>
+  <p class="cap">横轴为资源难度档，纵轴为该难度下的实测答题正确率。
+     落在浅色带内（60%~80%）表示难度与能力匹配（心流区间）；
+     高于上沿说明偏易、低于下沿说明偏难——这正是下一轮调整难度档的依据。</p>
+  <svg viewBox="0 0 880 300" width="100%" role="img" aria-label="难度匹配曲线">
+<rect x="62" y="87.6" width="726" height="41.6" fill="#DCEDEA"/>
+<text x="488" y="81.6" font-size="11" fill="#2E8B8B">心流区间 60%~80%（此区间内的难度匹配为"适配"）</text>
+<line x1="62" y1="129.2" x2="788" y2="129.2" stroke="#2E8B8B" stroke-width="1"/>
+<line x1="62" y1="87.6" x2="788" y2="87.6" stroke="#2E8B8B" stroke-width="1"/>
+<line x1="62" y1="254.0" x2="788" y2="254.0" stroke="#8494A6"/>
+<line x1="62" y1="46.0" x2="62" y2="254.0" stroke="#8494A6"/>
+<text x="54" y="258.0" font-size="11" fill="#8494A6" text-anchor="end">0%</text>
+<text x="54" y="216.4" font-size="11" fill="#8494A6" text-anchor="end">20%</text>
+<text x="54" y="174.8" font-size="11" fill="#8494A6" text-anchor="end">40%</text>
+<text x="54" y="133.2" font-size="11" fill="#8494A6" text-anchor="end">60%</text>
+<text x="54" y="91.6" font-size="11" fill="#8494A6" text-anchor="end">80%</text>
+<text x="54" y="50.0" font-size="11" fill="#8494A6" text-anchor="end">100%</text>
+<text x="62.0" y="276" font-size="12" fill="#48596B" text-anchor="middle">基础</text>
+<text x="425.0" y="276" font-size="12" fill="#48596B" text-anchor="middle">进阶</text>
+<text x="788.0" y="276" font-size="12" fill="#48596B" text-anchor="middle">挑战</text>
+<text x="407" y="294" font-size="12" fill="#48596B">难度档</text>
+<text x="14" y="150" font-size="12" fill="#48596B" transform="rotate(-90 14 150)">实测正确率</text>
+<polyline points="62.0,87.6 62.0,46.0" fill="none" stroke="#1F3B57" stroke-width="2"/>
+<polyline points="62.0,129.2 62.0,87.6" fill="none" stroke="#EE6A5F" stroke-width="2"/>
+<circle cx="62.0" cy="87.6" r="5" fill="#2E8B8B" stroke="#FFFFFF" stroke-width="2"><title>马尔可夫决策过程｜基础档｜正确率 4/5</title></circle>
+<text x="70.0" y="90.6" font-size="10" fill="#48596B">4/5</text>
+<circle cx="62.0" cy="46.0" r="5" fill="#EE6A5F" stroke="#FFFFFF" stroke-width="2"><title>部分可观测与 POMDP｜基础档｜正确率 5/5</title></circle>
+<text x="70.0" y="49.0" font-size="10" fill="#48596B">5/5</text>
+<circle cx="62.0" cy="129.2" r="5" fill="#2E8B8B" stroke="#FFFFFF" stroke-width="2"><title>非平稳性｜基础档｜正确率 3/5</title></circle>
+<text x="70.0" y="132.2" font-size="10" fill="#48596B">3/5</text>
+<circle cx="62.0" cy="87.6" r="5" fill="#2E8B8B" stroke="#FFFFFF" stroke-width="2"><title>集中训练分散执行（CTDE）｜基础档｜正确率 4/5</title></circle>
+<text x="70.0" y="90.6" font-size="10" fill="#48596B">4/5</text>
+<line x1="710" y1="20" x2="726" y2="20" stroke="#1F3B57" stroke-width="2"/>
+<text x="730" y="24" font-size="11" fill="#48596B">第 1 轮</text>
+<line x1="710" y1="36" x2="726" y2="36" stroke="#EE6A5F" stroke-width="2"/>
+<text x="730" y="40" font-size="11" fill="#48596B">第 2 轮</text>
+<text x="670" y="56" font-size="11" fill="#8494A6">点色：青=适配　珊瑚=未适配</text>
+</svg>
+  <table><thead><tr><th>轮次</th><th>知识点</th><th>难度档</th>
+    <th>掌握度估计</th><th>答题</th><th>落入心流区间</th></tr></thead>
+    <tbody><tr><td>1</td><td>马尔可夫决策过程</td><td>基础</td><td>0.516</td><td>4/5</td><td>是</td></tr><tr><td>1</td><td>部分可观测与 POMDP</td><td>基础</td><td>0.516</td><td>5/5</td><td>否</td></tr><tr><td>2</td><td>非平稳性</td><td>基础</td><td>0.516</td><td>3/5</td><td>是</td></tr><tr><td>2</td><td>集中训练分散执行（CTDE）</td><td>基础</td><td>0.516</td><td>4/5</td><td>是</td></tr></tbody></table>
+</div>
+
+<div class="card">
+  <h2>三、路径规划图</h2>
+  <p class="cap">横轴为闭环轮次，纵轴为难度档。每个点是一次"针对某知识点的资源投放"，
+     绿色表示该次投放的难度已匹配，红色表示需要下一轮调整。</p>
+  <svg viewBox="0 0 880 260" width="100%" role="img" aria-label="路径规划图">
+<rect x="50" y="20" width="750" height="214" fill="#EEF3F6" rx="6"/>
+<line x1="50" y1="196.8" x2="800" y2="196.8" stroke="#FFFFFF" stroke-width="1"/>
+<text x="40" y="200.8" font-size="12" fill="#48596B" text-anchor="end">基础</text>
+<line x1="50" y1="131.7" x2="800" y2="131.7" stroke="#FFFFFF" stroke-width="1"/>
+<text x="40" y="135.7" font-size="12" fill="#48596B" text-anchor="end">进阶</text>
+<line x1="50" y1="66.6" x2="800" y2="66.6" stroke="#FFFFFF" stroke-width="1"/>
+<text x="40" y="70.6" font-size="12" fill="#48596B" text-anchor="end">挑战</text>
+<text x="90.0" y="246" font-size="12" fill="#48596B" text-anchor="middle">第 1 轮</text>
+<text x="760.0" y="246" font-size="12" fill="#48596B" text-anchor="middle">第 2 轮</text>
+<circle cx="90.0" cy="196.8" r="7" fill="#2E8B8B" stroke="#FFFFFF" stroke-width="2"><title>马尔可夫决策过程｜基础｜正确率 80%｜进阶挑战</title></circle>
+<text x="90.0" y="184.8" font-size="11" fill="#1B2733" text-anchor="middle">马尔可夫决策过程</text>
+<circle cx="90.0" cy="196.8" r="7" fill="#EE6A5F" stroke="#FFFFFF" stroke-width="2"><title>部分可观测与 POMDP｜基础｜正确率 100%｜进阶挑战</title></circle>
+<text x="90.0" y="184.8" font-size="11" fill="#1B2733" text-anchor="middle">部分可观测与 POMDP</text>
+<circle cx="760.0" cy="196.8" r="7" fill="#2E8B8B" stroke="#FFFFFF" stroke-width="2"><title>非平稳性｜基础｜正确率 60%｜维持当前难度</title></circle>
+<text x="760.0" y="184.8" font-size="11" fill="#1B2733" text-anchor="middle">非平稳性</text>
+<circle cx="760.0" cy="196.8" r="7" fill="#2E8B8B" stroke="#FFFFFF" stroke-width="2"><title>集中训练分散执行（CTDE）｜基础｜正确率 80%｜维持当前难度</title></circle>
+<text x="760.0" y="184.8" font-size="11" fill="#1B2733" text-anchor="middle">集中训练分散执行（CT…</text>
+<text x="50" y="14" font-size="11" fill="#8494A6">实心点=该轮目标知识点；虚线=同一知识点跨轮推进</text>
+</svg>
+</div>
+
+<div class="card">
+  <h2>四、关键指标</h2>
+  <p class="cap">全部指标来自本次闭环的真实运行记录，口径在 <code>engine/orchestrator.py
+     ::summarize_session</code> 中唯一定义。</p>
+  <table><thead><tr><th>指标</th><th>数值</th><th>口径说明</th></tr></thead>
+  <tbody><tr><td>投影前幻觉率（宽口径）</td><td class="v">3.12%</td><td>声明与知识库冲突的比例，投影前</td></tr><tr><td>投影后幻觉率（宽口径）</td><td class="v">0.00%</td><td>经知识约束投影后的残余冲突比例</td></tr><tr><td>投影介入率</td><td class="v">1.4%</td><td>被替换/限定/删除的声明占比</td></tr><tr><td>平均归一化编辑距离</td><td class="v">0.8784</td><td>介入声明的平均改动幅度，越小越接近"最小改动"</td></tr><tr><td>适配率（心流区间 60%~80%）</td><td class="v">75.0%</td><td>实测正确率落进心流区间的（学习者,知识点）对占比</td></tr><tr><td>资源形态数</td><td class="v">3 类</td><td>讲义/指南/测试题</td></tr><tr><td>涉及知识点数</td><td class="v">4 个</td><td>本轮闭环实际产出的知识点数</td></tr><tr><td>全库知识点覆盖率</td><td class="v">11.8%</td><td>占知识库全部 34 个知识点的比例</td></tr><tr><td>交叉验证争议数</td><td class="v">0 条</td><td>两视角判定不一致、经第三视角裁决的声明数</td></tr><tr><td>通信稀疏度</td><td class="v">75.0%</td><td>门控实际发送 / 候选消息数</td></tr><tr><td>token 节省率</td><td class="v">5.2%</td><td>门控相对全通信省下的消息字符占比</td></tr></tbody></table>
+  <div class="note">反馈信号来源：<b>LearnerSim(模拟)</b>。离线演示环境没有真实学习者，
+     因此作答由确定性模拟器产生；真实部署时替换为真实作答数据，接口不变。
+     此外，若使用离线后端（mock），幻觉率衡量的是<b>审核与投影机制的有效性</b>，
+     而非真实大模型的幻觉率——真实数值请用 <code>--backend openai</code> 测量。</div>
+</div>
+
+<footer>Ph-MARL-Edu ｜ 四智能体协同闭环 ｜ 本报告为单文件 HTML，零外部依赖</footer>
+</div></body></html>

@@ -1,0 +1,1865 @@
+{
+  "profile_id": "L001",
+  "说明": "声明级审核明细：每条声明的三态判定、取证出处、投影算子与最终文本。这是\"高保真知识溯源\"的原始记录。",
+  "resources": [
+    {
+      "round": 1,
+      "knowledge_point": "值分解方法（VDN / QMIX）",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-05",
+          "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+          "score": 39.52
+        },
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 10.55
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 7,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 7,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 7,
+        "投影处置数": 0,
+        "SUPPORTED": 7,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 282.78
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 90.04
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 77.26
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 198.75
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 35.16
+            },
+            {
+              "doc_id": "KB-M4-01",
+              "citation": "控制屏障函数（CBF） §3（Ames et al. Control Barrier Function Based Quadratic Programs for Safety Critical Systems. IEEE TAC, 2017.，KB-M4-01）",
+              "score": 33.79
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "二、要点速记",
+          "text": "VDN：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 204.05
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 35.16
+            },
+            {
+              "doc_id": "KB-M4-01",
+              "citation": "控制屏障函数（CBF） §3（Ames et al. Control Barrier Function Based Quadratic Programs for Safety Critical Systems. IEEE TAC, 2017.，KB-M4-01）",
+              "score": 33.79
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "VDN：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "text": "QMIX：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 203.19
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 37.76
+            },
+            {
+              "doc_id": "KB-M4-01",
+              "citation": "控制屏障函数（CBF） §3（Ames et al. Control Barrier Function Based Quadratic Programs for Safety Critical Systems. IEEE TAC, 2017.，KB-M4-01）",
+              "score": 33.79
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "QMIX：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "text": "值分解：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 300.55
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 90.04
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 79.68
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "值分解：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "text": "单调性约束：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 224.39
+            },
+            {
+              "doc_id": "KB-M4-01",
+              "citation": "控制屏障函数（CBF） §3（Ames et al. Control Barrier Function Based Quadratic Programs for Safety Critical Systems. IEEE TAC, 2017.，KB-M4-01）",
+              "score": 41.19
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 35.66
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "单调性约束：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C007",
+          "section": "二、要点速记",
+          "text": "可分散执行：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 221.26
+            },
+            {
+              "doc_id": "KB-M1-04",
+              "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+              "score": 54.13
+            },
+            {
+              "doc_id": "KB-M4-01",
+              "citation": "控制屏障函数（CBF） §3（Ames et al. Control Barrier Function Based Quadratic Programs for Safety Critical Systems. IEEE TAC, 2017.，KB-M4-01）",
+              "score": 36.97
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "可分散执行：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "二、要点速记",
+          "原始声明": "VDN：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "VDN：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "原始声明": "QMIX：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "QMIX：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "原始声明": "值分解：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "值分解：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "原始声明": "单调性约束：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "单调性约束：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C007",
+          "section": "二、要点速记",
+          "原始声明": "可分散执行：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "可分散执行：VDN 采用求和分解，QMIX 采用单调性约束的混合网络（∂Q_tot/∂Q_i ≥ 0），在保证可分散执行（argmax 一致）的同时表达能力更强。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 7,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "值分解方法（VDN / QMIX）",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-05",
+          "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+          "score": 39.52
+        },
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 10.55
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "值分解方法（VDN / QMIX）",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-05",
+          "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+          "score": 39.52
+        },
+        {
+          "doc_id": "KB-M1-04",
+          "citation": "集中训练分散执行（CTDE） §3（Lowe et al. Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments. NeurIPS 2017.，KB-M1-04）",
+          "score": 10.55
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 2,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：值分解方法（VDN / QMIX）（基础）",
+          "text": "参考答案：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「值分解方法（VDN / QMIX）」表述一致（重叠 0.91）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-05",
+              "citation": "值分解方法（VDN / QMIX） §4（Rashid et al. QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning. ICML 2018.，KB-M1-05）",
+              "score": 282.78
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 90.04
+            },
+            {
+              "doc_id": "KB-M2-04",
+              "citation": "MADDPG 的 Critic 输入与适用条件 §4（Lowe et al. MADDPG. NeurIPS 2017.，KB-M2-04）",
+              "score": 77.26
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：值分解方法（VDN / QMIX）（基础）",
+          "原始声明": "参考答案：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：值分解方法把联合动作价值函数分解为各智能体局部价值函数的组合，从而把学习目标从指数增长的联合动作空间降为线性增长的个体空间",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "信用分配问题",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-06",
+          "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+          "score": 28.46
+        },
+        {
+          "doc_id": "KB-M1-07",
+          "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+          "score": 11.84
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 6,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 6,
+        "投影处置数": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「信用分配问题」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-06",
+              "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+              "score": 142.67
+            },
+            {
+              "doc_id": "KB-M1-07",
+              "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+              "score": 41.76
+            },
+            {
+              "doc_id": "KB-M3-02",
+              "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+              "score": 20.47
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「信用分配问题」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-06",
+              "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+              "score": 278.04
+            },
+            {
+              "doc_id": "KB-M1-07",
+              "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+              "score": 66.86
+            },
+            {
+              "doc_id": "KB-M3-02",
+              "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+              "score": 44.78
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "text": "常用手段包括反事实基线（COMA）与差分奖励。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「信用分配问题」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-06",
+              "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+              "score": 87.12
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 12.82
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 12.42
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "常用手段包括反事实基线（COMA）与差分奖励。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "text": "信用分配：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「信用分配问题」表述一致（重叠 0.98）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-06",
+              "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+              "score": 161.84
+            },
+            {
+              "doc_id": "KB-M1-07",
+              "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+              "score": 53.59
+            },
+            {
+              "doc_id": "KB-M3-02",
+              "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+              "score": 23.95
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "信用分配：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "text": "反事实基线：常用手段包括反事实基线（COMA）与差分奖励。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「信用分配问题」表述一致（重叠 0.97）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-06",
+              "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+              "score": 116.85
+            },
+            {
+              "doc_id": "KB-M2-01",
+              "citation": "策略梯度定理 §13.1（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M2-01）",
+              "score": 17.1
+            },
+            {
+              "doc_id": "KB-M2-02",
+              "citation": "PPO 与信赖域 §3（Schulman et al. Proximal Policy Optimization Algorithms. arXiv:1707.06347, 2017.，KB-M2-02）",
+              "score": 16.58
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "反事实基线：常用手段包括反事实基线（COMA）与差分奖励。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "text": "懒惰行为：由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「信用分配问题」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-06",
+              "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+              "score": 301.79
+            },
+            {
+              "doc_id": "KB-M1-07",
+              "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+              "score": 67.44
+            },
+            {
+              "doc_id": "KB-M3-02",
+              "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+              "score": 49.07
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "懒惰行为：由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "原始声明": "常用手段包括反事实基线（COMA）与差分奖励。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "常用手段包括反事实基线（COMA）与差分奖励。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "原始声明": "信用分配：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "信用分配：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "原始声明": "反事实基线：常用手段包括反事实基线（COMA）与差分奖励。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "反事实基线：常用手段包括反事实基线（COMA）与差分奖励。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "原始声明": "懒惰行为：由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "懒惰行为：由于奖励通常是全局的（所有智能体共享同一个团队奖励），智能体难以判断自身动作对结果的贡献，容易出现\"搭便车\"或\"互相推诿\"的懒惰行为。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 6,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "信用分配问题",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-06",
+          "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+          "score": 28.46
+        },
+        {
+          "doc_id": "KB-M1-07",
+          "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+          "score": 11.84
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 1,
+      "knowledge_point": "信用分配问题",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-06",
+          "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+          "score": 28.46
+        },
+        {
+          "doc_id": "KB-M1-07",
+          "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+          "score": 11.84
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 2,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：信用分配问题（基础）",
+          "text": "参考答案：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「信用分配问题」表述一致（重叠 0.87）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-06",
+              "citation": "信用分配问题 §3.4（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-06）",
+              "score": 142.67
+            },
+            {
+              "doc_id": "KB-M1-07",
+              "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+              "score": 41.76
+            },
+            {
+              "doc_id": "KB-M3-02",
+              "citation": "因果效应用作通信必要性判据 §4（Jaques et al. Social Influence as Intrinsic Motivation for Multi-Agent Deep Reinforcement Learning. ICML 2019.，KB-M3-02）",
+              "score": 20.47
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：信用分配问题（基础）",
+          "原始声明": "参考答案：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：信用分配指在团队获得一个奖励后，如何判断各智能体的贡献大小",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "折扣因子的作用与取值",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-08",
+          "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+          "score": 46.63
+        },
+        {
+          "doc_id": "KB-M1-01",
+          "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+          "score": 15.66
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 6,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 5,
+        "CONTRADICTED": 1,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.1667,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.1667
+      },
+      "post_audit": {
+        "交付声明数": 6,
+        "投影处置数": 0,
+        "SUPPORTED": 6,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「折扣因子的作用与取值」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 109.62
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 34.81
+            },
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 29.66
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "γ 越接近 1，智能体越重视长期回报，但价值估计的方差与自举偏差也越大，在长时序任务中容易导致训练不稳定。",
+          "verdict": "SUPPORTED",
+          "reason": "（三视角裁决：A=SUPPORTED / B=UNVERIFIED）与证据「折扣因子的作用与取值」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 197.01
+            },
+            {
+              "doc_id": "KB-M2-06",
+              "citation": "经验回放与目标网络 §2（Mnih et al. Human-level control through deep reinforcement learning. Nature, 2015.，KB-M2-06）",
+              "score": 38.49
+            },
+            {
+              "doc_id": "KB-M5-01",
+              "citation": "训练不稳定的常见原因 §1（PyTorch 官方文档；强化学习工程实践共识（本团队整理），2026.，KB-M5-01）",
+              "score": 33.93
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "γ 越接近 1，智能体越重视长期回报，但价值估计的方差与自举偏差也越大，在长时序任务中容易导致训练不稳定。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "text": "工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「折扣因子的作用与取值」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 198.05
+            },
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 49.4
+            },
+            {
+              "doc_id": "KB-M1-07",
+              "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+              "score": 39.23
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C004",
+          "section": "一、核心概念",
+          "text": "折扣因子 γ 应当尽可能取接近 1 的值，γ 越大越重视长期收益，因此 γ=0.999 总是最优选择。",
+          "verdict": "SUPPORTED",
+          "reason": "与知识库条目「折扣因子的作用与取值」记录的领域误区表述一致（条目级对账 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 75.53
+            },
+            {
+              "doc_id": "KB-M3-04",
+              "citation": "消息压缩与信息瓶颈 §3（通信与协同调度方向公开文献综述（本团队整理），2026.，KB-M3-04）",
+              "score": 24.68
+            },
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 22.14
+            }
+          ],
+          "operator": "REPLACE",
+          "final_text": "折扣因子 γ 的取值需要在\"重视长期回报\"与\"控制价值估计方差与自举偏差\"之间权衡：γ 越接近 1，长时序任务中的训练越容易不稳定，工程实践常见取值为 0.95～0.99，而不是把 γ 调到最大。",
+          "edit_distance": 0.7959
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "text": "折扣因子：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「折扣因子的作用与取值」表述一致（重叠 0.98）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 132.69
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 49.29
+            },
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 44.05
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "折扣因子：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "text": "奖励塑形：工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「折扣因子的作用与取值」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 221.39
+            },
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 56.15
+            },
+            {
+              "doc_id": "KB-M1-07",
+              "citation": "合作型任务的三种常见设定 §3.2（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-07）",
+              "score": 46.71
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "奖励塑形：工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [
+        {
+          "cid": "C002",
+          "声明": "γ 越接近 1，智能体越重视长期回报，但价值估计的方差与自举偏差也越大，在长时序任务中容易导致训练不稳定。",
+          "视角A": "SUPPORTED",
+          "视角A理由": "与证据「折扣因子的作用与取值」表述一致（重叠 1.00）",
+          "视角B": "UNVERIFIED",
+          "视角B理由": "重叠仅 0.23，证据不足以判定",
+          "裁决": "SUPPORTED",
+          "裁决理由": "与证据「折扣因子的作用与取值」表述一致（重叠 1.00）",
+          "裁决证据": [
+            "KB-M1-08",
+            "KB-M2-01",
+            "KB-M2-06",
+            "KB-M2-07",
+            "KB-M5-01"
+          ]
+        }
+      ],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "γ 越接近 1，智能体越重视长期回报，但价值估计的方差与自举偏差也越大，在长时序任务中容易导致训练不稳定。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "γ 越接近 1，智能体越重视长期回报，但价值估计的方差与自举偏差也越大，在长时序任务中容易导致训练不稳定。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "一、核心概念",
+          "原始声明": "工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C004",
+          "section": "一、核心概念",
+          "原始声明": "折扣因子 γ 应当尽可能取接近 1 的值，γ 越大越重视长期收益，因此 γ=0.999 总是最优选择。",
+          "原判定": "CONTRADICTED",
+          "尝试": [
+            {
+              "算子": "REPLACE",
+              "可行性": true,
+              "复审判定": "SUPPORTED",
+              "归一化编辑距离": 0.7959,
+              "候选文本": "折扣因子 γ 的取值需要在\"重视长期回报\"与\"控制价值估计方差与自举偏差\"之间权衡：γ 越接近 1，长时序任务中的训练越容易不稳定，工程实践常见取值为 0.95～0.99，而不是把 γ 调到最大。"
+            },
+            {
+              "算子": "DELETE",
+              "可行性": true,
+              "复审判定": "DELETED",
+              "归一化编辑距离": 1.0,
+              "候选文本": null
+            }
+          ],
+          "核定过程的拒绝": [],
+          "选定算子": "REPLACE",
+          "最终文本": "折扣因子 γ 的取值需要在\"重视长期回报\"与\"控制价值估计方差与自举偏差\"之间权衡：γ 越接近 1，长时序任务中的训练越容易不稳定，工程实践常见取值为 0.95～0.99，而不是把 γ 调到最大。",
+          "补充检索后判定": "CONTRADICTED"
+        },
+        {
+          "cid": "C005",
+          "section": "二、要点速记",
+          "原始声明": "折扣因子：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "折扣因子：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C006",
+          "section": "二、要点速记",
+          "原始声明": "奖励塑形：工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "奖励塑形：工程实践中常见取值为 0.95～0.99，长时序、奖励稀疏的任务往往需要配合较小的 γ 或奖励塑形，而不是单纯把 γ 调到最大。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 6,
+        "冲突声明数": 1,
+        "投影介入率": 0.1667,
+        "替换数": 1,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.7959,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "折扣因子的作用与取值",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-08",
+          "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+          "score": 46.63
+        },
+        {
+          "doc_id": "KB-M1-01",
+          "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+          "score": 15.66
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "折扣因子的作用与取值",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M1-08",
+          "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+          "score": 46.63
+        },
+        {
+          "doc_id": "KB-M1-01",
+          "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+          "score": 15.66
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 2,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：折扣因子的作用与取值（基础）",
+          "text": "参考答案：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「折扣因子的作用与取值」表述一致（重叠 0.85）",
+          "evidence": [
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 109.62
+            },
+            {
+              "doc_id": "KB-M1-01",
+              "citation": "马尔可夫决策过程 §2.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning: Foundations and Modern Approaches. MIT Press, 2024.，KB-M1-01）",
+              "score": 34.81
+            },
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 32.41
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：折扣因子的作用与取值（基础）",
+          "原始声明": "参考答案：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：折扣因子 γ ∈ [0,1) 决定未来奖励的权重，控制智能体的短视程度",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "SAC 与最大熵强化学习",
+      "label": "定制讲义",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M2-03",
+          "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+          "score": 41.42
+        },
+        {
+          "doc_id": "KB-M5-04",
+          "citation": "课程学习与分阶段训练 §2（Bengio et al. Curriculum Learning. ICML 2009.，KB-M5-04）",
+          "score": 12.64
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 4,
+        "非断言性文本_不计入": 0,
+        "SUPPORTED": 4,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 4,
+        "投影处置数": 0,
+        "SUPPORTED": 4,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "text": "SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「SAC 与最大熵强化学习」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M2-03",
+              "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+              "score": 203.03
+            },
+            {
+              "doc_id": "KB-M4-03",
+              "citation": "最小改动投影的意义 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-03）",
+              "score": 44.04
+            },
+            {
+              "doc_id": "KB-M2-05",
+              "citation": "确定性策略梯度与探索噪声 §5（Silver et al. Deterministic Policy Gradient Algorithms. ICML 2014.，KB-M2-05）",
+              "score": 30.52
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "text": "SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「SAC 与最大熵强化学习」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M2-03",
+              "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+              "score": 207.44
+            },
+            {
+              "doc_id": "KB-M2-05",
+              "citation": "确定性策略梯度与探索噪声 §5（Silver et al. Deterministic Policy Gradient Algorithms. ICML 2014.，KB-M2-05）",
+              "score": 53.25
+            },
+            {
+              "doc_id": "KB-M2-06",
+              "citation": "经验回放与目标网络 §2（Mnih et al. Human-level control through deep reinforcement learning. Nature, 2015.，KB-M2-06）",
+              "score": 49.04
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C003",
+          "section": "二、要点速记",
+          "text": "SAC：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「SAC 与最大熵强化学习」表述一致（重叠 1.00）",
+          "evidence": [
+            {
+              "doc_id": "KB-M2-03",
+              "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+              "score": 208.91
+            },
+            {
+              "doc_id": "KB-M4-03",
+              "citation": "最小改动投影的意义 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-03）",
+              "score": 44.04
+            },
+            {
+              "doc_id": "KB-M2-05",
+              "citation": "确定性策略梯度与探索噪声 §5（Silver et al. Deterministic Policy Gradient Algorithms. ICML 2014.，KB-M2-05）",
+              "score": 30.52
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "SAC：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "edit_distance": 0
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "text": "离策略：SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「SAC 与最大熵强化学习」表述一致（重叠 0.99）",
+          "evidence": [
+            {
+              "doc_id": "KB-M2-03",
+              "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+              "score": 219.06
+            },
+            {
+              "doc_id": "KB-M2-05",
+              "citation": "确定性策略梯度与探索噪声 §5（Silver et al. Deterministic Policy Gradient Algorithms. ICML 2014.，KB-M2-05）",
+              "score": 56.8
+            },
+            {
+              "doc_id": "KB-M2-06",
+              "citation": "经验回放与目标网络 §2（Mnih et al. Human-level control through deep reinforcement learning. Nature, 2015.，KB-M2-06）",
+              "score": 50.78
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "离策略：SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "一、核心概念",
+          "原始声明": "SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C002",
+          "section": "一、核心概念",
+          "原始声明": "SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C003",
+          "section": "二、要点速记",
+          "原始声明": "SAC：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "SAC：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        },
+        {
+          "cid": "C004",
+          "section": "二、要点速记",
+          "原始声明": "离策略：SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "离策略：SAC 采用离策略（off-policy）学习、双 Q 网络抑制过估计、以及重参数化的随机策略，在连续控制基准上样本效率与稳定性俱佳。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 4,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "SAC 与最大熵强化学习",
+      "label": "实操指南",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M2-03",
+          "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+          "score": 41.42
+        },
+        {
+          "doc_id": "KB-M5-04",
+          "citation": "课程学习与分阶段训练 §2（Bengio et al. Curriculum Learning. ICML 2009.，KB-M5-04）",
+          "score": 12.64
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 3,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「超参迁移的边界」表述一致（重叠 0.65）",
+          "evidence": [
+            {
+              "doc_id": "KB-M5-07",
+              "citation": "超参迁移的边界 §5（强化学习工程实践共识（本团队整理），2026.，KB-M5-07）",
+              "score": 75.75
+            },
+            {
+              "doc_id": "KB-M1-03",
+              "citation": "非平稳性 §3.1（Albrecht, Christianos & Schäfer. Multi-Agent Reinforcement Learning. MIT Press, 2024.，KB-M1-03）",
+              "score": 29.49
+            },
+            {
+              "doc_id": "KB-M1-08",
+              "citation": "折扣因子的作用与取值 §3.3（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M1-08）",
+              "score": 17.74
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "步骤 4｜常见坑",
+          "原始声明": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "超参直接照搬其他环境而不做标定，是训练失败的最常见根因。",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    },
+    {
+      "round": 2,
+      "knowledge_point": "SAC 与最大熵强化学习",
+      "label": "分阶测试题",
+      "difficulty": "基础",
+      "evidence": [
+        {
+          "doc_id": "KB-M2-03",
+          "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+          "score": 41.42
+        },
+        {
+          "doc_id": "KB-M5-04",
+          "citation": "课程学习与分阶段训练 §2（Bengio et al. Curriculum Learning. ICML 2009.，KB-M5-04）",
+          "score": 12.64
+        }
+      ],
+      "pre_audit": {
+        "声明总数": 1,
+        "非断言性文本_不计入": 2,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/总数)": 0.0,
+        "幻觉率_严口径((冲突+未溯源)/总数)": 0.0
+      },
+      "post_audit": {
+        "交付声明数": 1,
+        "投影处置数": 0,
+        "SUPPORTED": 1,
+        "CONTRADICTED": 0,
+        "UNVERIFIED": 0,
+        "幻觉率_宽口径(冲突/交付)": 0.0,
+        "幻觉率_严口径(交付)": 0.0
+      },
+      "claims": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：SAC 与最大熵强化学习（基础）",
+          "text": "参考答案：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性",
+          "verdict": "SUPPORTED",
+          "reason": "与证据「SAC 与最大熵强化学习」表述一致（重叠 0.91）",
+          "evidence": [
+            {
+              "doc_id": "KB-M2-03",
+              "citation": "SAC 与最大熵强化学习 §4（Haarnoja et al. Soft Actor-Critic: Off-Policy Maximum Entropy Deep RL with a Stochastic Actor. ICML 2018.，KB-M2-03）",
+              "score": 204.67
+            },
+            {
+              "doc_id": "KB-M4-03",
+              "citation": "最小改动投影的意义 §5（Ames et al. CBF-QP. IEEE TAC, 2017.，KB-M4-03）",
+              "score": 44.04
+            },
+            {
+              "doc_id": "KB-M2-01",
+              "citation": "策略梯度定理 §13.1（Sutton & Barto. Reinforcement Learning: An Introduction, 2nd ed. MIT Press, 2018.，KB-M2-01）",
+              "score": 31.27
+            }
+          ],
+          "operator": "KEEP",
+          "final_text": "参考答案：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性",
+          "edit_distance": 0
+        }
+      ],
+      "disputes": [],
+      "projection_records": [
+        {
+          "cid": "C001",
+          "section": "分阶测试题：SAC 与最大熵强化学习（基础）",
+          "原始声明": "参考答案：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性",
+          "原判定": "SUPPORTED",
+          "尝试": [],
+          "核定过程的拒绝": [],
+          "选定算子": "KEEP",
+          "最终文本": "参考答案：SAC 在回报目标中加入策略熵项，即在最大化回报的同时最大化策略熵，从而鼓励探索并提升鲁棒性",
+          "不介入理由": "判定为 SUPPORTED，非冲突 ⇒ 不做改写，仅标注溯源状态"
+        }
+      ],
+      "projection_stats": {
+        "声明总数": 1,
+        "冲突声明数": 0,
+        "投影介入率": 0.0,
+        "替换数": 0,
+        "限定化数": 0,
+        "删除数": 0,
+        "平均编辑距离": 0.0,
+        "残余未合规数": 0,
+        "残余未合规比例": 0.0,
+        "未溯源保留数": 0,
+        "可行性": true
+      }
+    }
+  ]
+}
